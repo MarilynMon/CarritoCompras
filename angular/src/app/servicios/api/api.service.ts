@@ -18,10 +18,10 @@ export class ApiService {
     'Access-Control-Allow-Origin' : '*',
   });
 
-  ngOnInit(): void{ 
+  ngOnInit(): void{
   //  this.onInicio();
   }
-   
+
 urlSesion:string ="https://localhost:44311/api";
 
 descripcion :string="";
@@ -30,16 +30,12 @@ descripcion :string="";
 };
 
   onInicio(filters: ConsultaProductos):Observable<ProductosResponse[]>{
-    let direccion = this.urlSesion + "/services/app/Products/GetProducts";
+    let direccion = "https://localhost:44311/api/services/app/Products/GetProducts";
 		let params = new HttpParams().set('transaccion', filters.transaccion).set('tipo', filters.tipo);
-
 		return this.http.get<ProductosResponse[]>(`${direccion}`, { params })
-    //.pipe(map(result => result['result']))
     ;
-	  
-
   }
-  
+
 
   onLoguin(filters:LoguinUser):Observable<any>{
     let headers = new HttpHeaders();

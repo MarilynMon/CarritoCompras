@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from 'src/app/servicios/api/api.service';
 import { DatosUsarios, LoguinUser } from '../modelsLoguin/filter_services';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sesion',
   templateUrl: './sesion.component.html',
@@ -22,7 +23,7 @@ export class SesionComponent {
    
 
 descripcion :string="";
-constructor(private api: ApiService ){
+constructor(private api: ApiService , private router:Router){
 
 }
 ngOnInit ()
@@ -47,7 +48,7 @@ IniciarSesion()
 					if (codigoRetorno != "0001")
           { window.location.reload();
           }
-          
+          this.router.navigate(['empleado']);          
 				});
   
 }

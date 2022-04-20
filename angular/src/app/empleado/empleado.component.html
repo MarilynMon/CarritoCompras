@@ -6,7 +6,7 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
- 
+
 </head>
 <body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,7 +14,7 @@
 	<!--FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	
+
 	<!-- Los iconos tipo Solid de Fontawesome-->
 	<link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
 	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -26,25 +26,20 @@
   Prueba - Marilyn Monrroy
 	</a>
   </nav>
-  
   <div class="container">
 	<div class="row">
 	  <div class="col-md-8 mt-4">
-  
-		<ul class="list-group">
-		  <li *ngFor ="let empleado  of ProductoArray"
-		  class="list-group-item list-group-item-action"
-		  (click)="OnIniciar()"
-		  [class.active]="empleado == selectProducto"
-		  >
-		   <span class="badge badge-primary">
-			{{"* "}}
-		   </span> {{empleado.descripcion}} {{empleado.detalle}} - {{empleado.precio}}
-		  </li>
-		</ul>
-  
-  
-		
+<div *ngFor="let product of this.ListaProdcuts.result">
+
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src={{product.imagen}}  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product.descripcion}}</h5>
+      <p class="card-text">{{product.detalle}}</p>
+    </div>
+  </div>
+</div>
+
 		</div>
 	  </div>
 	  <div class="col md 4">
@@ -55,7 +50,7 @@
 	/>
 	  </div>
 	</div>
-  
+
 </body>
 
 </html>
